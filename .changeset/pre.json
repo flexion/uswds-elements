@@ -1,8 +1,0 @@
-{
-  "mode": "pre",
-  "tag": "alpha",
-  "initialVersions": {
-    "@uswds/elements": "1.0.0-alpha.2"
-  },
-  "changesets": []
-}
