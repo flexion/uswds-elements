@@ -46,7 +46,6 @@
     "stylelint:fix": "stylelint './src/components/**/*.{css,css.js,css.ts}' --fix --config=./config/stylelint.config.mjs",
     "manifest:build": "npx cem analyze --config ./config/custom-elements-manifest.config.js",
     "manifest:watch": "npx cem analyze --config ./config/custom-elements-manifest.config.js --watch --dev",
-    "release": "npm run build:tokens && npm run build && release-it",
     "test": "vitest --config ./config/vitest.config.js",
     "test:ci": "vitest run --config ./config/vitest.config.js",
     "test:storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:serve\" \"wait-on tcp:127.0.0.1:3000 && npx test-storybook --url http://localhost:3000\"",
@@ -111,6 +110,9 @@
     },
     "github": {
       "release": true
+    },
+    "hooks": {
+      "before:init": "npm run build:tokens && npm run build"
     }
   }
 }
